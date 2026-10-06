@@ -1,0 +1,18 @@
+# Production overrides:  docker compose -f compose.yaml -f compose.production.yaml up -d
+# Pin images by version tag (set RREstate_VERSION), never :latest.
+services:
+  postgres:
+    restart: unless-stopped
+  backend:
+    image: rrestate-backend:${RRESTATE_VERSION:?set RRESTATE_VERSION}
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      COOKIE_SECURE: "true"
+    deploy: { resources: { limits: { memory: 768m } } }
+  frontend:
+    image: rrestate-frontend:${RRESTATE_VERSION:?set RRESTATE_VERSION}
+    restart: unless-stopped
+  proxy:
+    restart: unless-stopped
+    ports: ["80:80", "443:443"]

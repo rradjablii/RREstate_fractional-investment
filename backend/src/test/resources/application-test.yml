@@ -1,0 +1,11 @@
+rrestate:
+  refresh.cookie-secure: false
+  compliance:
+    investment-enabled: true
+    kyc-required: false
+  rate-limit:
+    auth-per-minute: 10000
+    investments-per-minute: 10000
+  bootstrap-admin:
+    email: admin@test.example
+    password: Admin-password-123

@@ -1,0 +1,7 @@
+logging:
+  structured.format.console: ecs
+  level.root: INFO
+rrestate:
+  refresh.cookie-secure: true
+management:
+  endpoints.web.exposure.include: health

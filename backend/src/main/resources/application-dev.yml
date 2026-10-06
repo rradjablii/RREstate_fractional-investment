@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    password: ${POSTGRES_PASSWORD:rrestate}
+rrestate:
+  refresh.cookie-secure: false
+  cors.allowed-origins: http://localhost:5173
+  compliance:
+    investment-enabled: ${INVESTMENT_ENABLED:true}
+    kyc-required: false
+springdoc.swagger-ui.enabled: true
+management.endpoints.web.exposure.include: health,info,metrics
